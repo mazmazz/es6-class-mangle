@@ -2,14 +2,21 @@ class TestClass {
   constructor (defaultMsg) {
     this._internalMsg = 'No message specified';
     this.defaultMsg = defaultMsg;
-  }
 
-  _privateMethod (msg) {
-    return msg || this.defaultMsg || this._internalMsg;
-  }
+    var _this = this;
 
-  publicMethod (msg) {
-    return this._privateMethod(msg);
+    function _privateMethod (msg) {
+      return msg || _this.defaultMsg || _this._internalMsg;
+    }
+
+    this.publicMethod = function(msg) {
+      return _privateMethod(msg);
+    }
+
+    this.publicMethod2 = function(msg) {
+      console.log('Hello world');
+      return _privateMethod(msg);
+    }
   }
 };
 
@@ -26,4 +33,9 @@ console.log();
 console.log(`new TestClass("Default message")
   .publicMethod("Parameter message"):`);
 console.log(`    ${new TestClass('Default message').publicMethod('Parameter message')}`);
+console.log();
+
+console.log(`new TestClass("Default message")
+  .publicMethod2("Parameter message 2"):`);
+console.log(`    ${new TestClass('Default message').publicMethod2('Parameter message 2')}`);
 console.log();
