@@ -16,6 +16,7 @@
     "babel-plugin-minify-mangle-names": "^0.5.0",
     "buble": "^0.19.4",
     "buble-loader": "^0.5.1",
+    "terser-webpack-plugin": "^1.1.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"

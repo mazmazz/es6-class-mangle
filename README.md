@@ -4,7 +4,7 @@ Demo to test class property mangling with [webpack](https://github.com/webpack/w
 
 The expected result: leave `public` properties unmangled and mangle `_private` properties.
 
-# Run
+## Run
 
 ```
 npm install
@@ -12,9 +12,15 @@ npm run build
 npm test
 ```
 
-# Info
+## Result
 
-`buble` and `uglify` handle this scenario properly with regex `/^_/`.
+`babel-loader` does not handle this scenario because it stores class methods as `key: 'methodName', value: function(){}`. Mangling with `uglify-webpack-plugin` as a post-step does not affect the source method.
+
+Using `terser-webpack-plugin` would be nice if it could mangle the ES6 class *before* `babel-loader` is run.
+
+`buble` and `uglify-webpack-plugin` handle this scenario properly with regex `/^_/` because `buble` outputs the class as a function prototype.
+
+## Info
 
 As of October 14 2018, `babel-minify` [does not currently support class properties](https://github.com/babel/minify/issues/835#issuecomment-388025487).
 
