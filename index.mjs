@@ -1,15 +1,17 @@
 class TestClass {
+  #internalMsg;
+
+  /*#*/_privateMethod (msg) {
+    return msg || this.defaultMsg || this.#internalMsg;
+  }
+
   constructor (defaultMsg) {
-    this._internalMsg = 'No message specified';
+    this.#internalMsg = 'No message specified';
     this.defaultMsg = defaultMsg;
   }
 
-  _privateMethod (msg) {
-    return msg || this.defaultMsg || this._internalMsg;
-  }
-
   publicMethod (msg) {
-    return this._privateMethod(msg);
+    return this./*#*/_privateMethod(msg);
   }
 };
 

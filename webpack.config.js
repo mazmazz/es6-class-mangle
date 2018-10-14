@@ -155,4 +155,4 @@ const bubleUglifyConfig = {
   }
 };
 
-module.exports = [babelConfig, babelUglifyConfig, babelTerserConfig, bubleConfig, bubleUglifyConfig];
+module.exports = [babelConfig, babelUglifyConfig, babelTerserConfig/*, bubleConfig, bubleUglifyConfig*/];
