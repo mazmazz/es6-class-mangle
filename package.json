@@ -1,0 +1,23 @@
+{
+  "name": "es6-class-mangle",
+  "version": "1.0.0",
+  "description": "Class method name mangling.",
+  "main": "dist/babel.js",
+  "scripts": {
+    "test": "node test.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "mazmazz",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-minify-mangle-names": "^0.5.0",
+    "buble": "^0.19.4",
+    "buble-loader": "^0.5.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
