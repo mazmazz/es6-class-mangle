@@ -1,14 +1,15 @@
-class TestClass {
-  constructor (defaultMsg) {
-    this._internalMsg = 'No message specified';
-    this.defaultMsg = defaultMsg;
-  }
+export default function TestClass(defaultMsg) {
+  this.defaultMsg = defaultMsg;
+}
 
-  _privateMethod (msg) {
+TestClass.prototype = {
+  _internalMsg: 'No message specified',
+
+  _privateMethod: function(msg) {
     return msg || this.defaultMsg || this._internalMsg;
-  }
+  },
 
-  publicMethod (msg) {
+  publicMethod: function (msg) {
     return this._privateMethod(msg);
   }
 };
